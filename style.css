@@ -1,0 +1,184 @@
+@font-face {
+  font-display: swap;
+  font-family: 'Inter';
+  font-weight: 400 900;
+  src: url('assets/fonts/Inter-VariableFont_slnt\,wght.ttf');
+}
+
+:root {
+  --clr-body: var(--clr-neutral-100);
+  --clr-heading: var(--clr-neutral-900);
+  --ff-base: "Inter", sans-serif;
+  --flow-space: 1em;
+  --fw-bold: 900;
+  --fw-regular: 400;
+  --fw-semi-bold: 700;
+  --margin-block: 3rem;
+
+  --clr-neutral-100: hsl(36, 100%, 99%);
+  --clr-neutral-200: hsl(233, 8%, 79%);
+  --clr-neutral-400: hsl(236, 13%, 42%);
+  --clr-neutral-800: hsl(240, 100%, 5%);
+  --clr-neutral-900: hsl(238, 100%, 5%);
+
+  --clr-orange-400: hsl(35, 77%, 62%);
+  --clr-red-400: hsl(5, 85%, 63%);
+  --clr-accent-400: var(--clr-red-400);
+
+  --fs-400: 1rem;
+  --fs-500: 1.25rem;
+  --fs-600: 1.5rem;
+  --fs-700: 2rem;
+  --fs-800: 2.5rem;
+  --fs-900: 3rem;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: var(--clr-heading);
+  font-weight: var(--fw-bold);
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+:where(h1, h2, h3, h4) > a {
+  color: currentColor;
+  text-decoration: none;
+
+  &:hover,
+  &:focus-visible {
+    color: var(--clr-orange-400);
+  }
+}
+
+p {
+  max-width: 65ch;
+  text-wrap: pretty;
+}
+
+[role="list"] {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  object-fit: cover;
+}
+
+body {
+  background-color: var(--clr-body);
+  color: var(--clr-neutral-800);
+  font-family: var(--ff-400);
+  line-height: 1.6;
+  margin: 0;
+}
+
+main,
+section
+ {
+  container-type: inline-size;
+}
+
+.section {
+  display: grid;
+  gap: 2rem;
+  margin-block-end: var(--margin-block);
+}
+
+.base-layout {
+  --max-with: 1180px;
+  --padding: 1rem;
+  margin-inline: auto;
+  max-width: var(--max-with);
+  padding-inline: var(--padding);
+}
+
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.flow > * + * {
+  margin-block-start: var(--flow-space, 1em);
+}
+
+/* Multi image carousel */
+.multi-image-carousel {
+  position: relative;
+  display: grid;
+  overflow: hidden;
+  max-height: 70vh;
+  width: 100%;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.multi-image-carousel-wrapper {
+  height: inherit;
+  width: inherit;
+}
+
+.multi-image-carousel-content {
+  display: flex;
+  height: inherit;
+  width: inherit;
+
+  li {
+    height: inherit;
+    width: 500px;
+    display: grid;
+
+    img {
+    align-self: stretch;
+    }
+  }
+}
+
+.carousel__button {
+  position: absolute;
+  cursor: pointer;
+  inset-block: 0;
+  background-color: rgba(229, 255, 252, 0.322);
+  border: none;
+  font-weight: var(--fw-bold);
+  width: 4em;
+  z-index: 1;
+
+  &:hover {
+    background-color: rgba(229, 255, 252, 0.712);
+  }
+
+}
+
+#carousel__button-left {
+  left: 0;
+}
+
+#carousel__button-right {
+  right: 0;
+}
